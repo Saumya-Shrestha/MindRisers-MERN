@@ -1,6 +1,6 @@
 import React from "react";
 
-const Navbar = ({ title, mode }) => {
+const Navbar = ({ title, mode, text, toggleMode }) => {
   return (
     <div>
       <nav class={`navbar navbar-expand-lg navbar-${mode} bg-${mode}`}>
@@ -110,7 +110,12 @@ const Navbar = ({ title, mode }) => {
                 Search
               </button>
             </form> */}
-            <button className="btn btn-primary">Light Mode</button>
+            <button
+              className="btn btn-primary"
+              onClick={toggleMode}
+            >
+              {text}
+            </button>
           </div>
         </div>
       </nav>

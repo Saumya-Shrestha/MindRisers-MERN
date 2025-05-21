@@ -2,10 +2,38 @@ import { useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Banner from "./components/Banner";
+import Alert from "./components/Alert";
+import One from "./components/One";
 
 function App() {
   const [count, setCount] = useState(0);
   const [mode, setMode] = useState("dark");
+  const [text, setText] = useState("Dark Mode");
+  const [alert, setAlert] = useState(null);
+
+  const toggleMode = () => {
+    if (mode == "dark") {
+      setMode("light");
+      setText("Dark Mode");
+      showAlert("Light Mode Has Been Enabled", "success");
+    } else {
+      setMode("dark");
+      setText("Light Mode");
+      showAlert("Dark Mode Has Been Enabled", "success");
+    }
+  };
+
+  const showAlert = (message, type) => {
+    setAlert({
+      message: message,
+      type: type,
+    });
+  };
+
+  setTimeout(() => {
+    setAlert(null);
+  }, 2000);
+
   const handleIncrement = () => {
     setCount(count + 1);
   };
@@ -19,9 +47,12 @@ function App() {
       <Navbar
         title={title}
         mode={mode}
-        setMode={setMode}
+        text={text}
+        toggleMode={toggleMode}
       />
+      <Alert alert={alert} />
       <Banner />
+      <One mode={mode} />
       <div className="container">
         <h1 className="title">Chaitra Group</h1>
         <div className="card">
