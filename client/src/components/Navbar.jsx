@@ -111,7 +111,7 @@ const Navbar = ({ title, mode, text, toggleMode }) => {
               </button>
             </form> */}
             <button
-              className="btn btn-primary"
+              className={`btn btn-${mode === "light" ? "dark" : "light"}`}
               onClick={toggleMode}
             >
               {text}
