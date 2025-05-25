@@ -1,6 +1,6 @@
 import React from "react";
 
-const Navbar = ({ title, mode, text, toggleMode }) => {
+const Navbar = ({ title, mode, text, toggleMode, notify }) => {
   return (
     <div>
       <nav class={`navbar navbar-expand-lg navbar-${mode} bg-${mode}`}>
@@ -115,6 +115,12 @@ const Navbar = ({ title, mode, text, toggleMode }) => {
               onClick={toggleMode}
             >
               {text}
+            </button>
+            <button
+              className={`btn btn-${mode === "light" ? "dark" : "light"}`}
+              onClick={notify}
+            >
+              Toastify
             </button>
           </div>
         </div>
