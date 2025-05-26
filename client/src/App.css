@@ -1,7 +1,21 @@
-.title {
-  color: blueviolet;
-}
-
 .cardone {
   padding-bottom: 40px;
+}
+
+.banner-container {
+  position: relative;
+  width: 100%;
+}
+
+.small-banner {
+  width: 100%;
+  object-fit: cover;
+}
+
+.title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
 }
