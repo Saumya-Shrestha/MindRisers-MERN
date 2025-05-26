@@ -1,5 +1,7 @@
 import React from "react";
 import b1 from "../assets/b1.jpg";
+import b2 from "../assets/b2.jpg";
+import b3 from "../assets/b3.jpg";
 
 const Banner = () => {
   return (
@@ -18,14 +20,14 @@ const Banner = () => {
           </div>
           <div class="carousel-item">
             <img
-              src={b1}
+              src={b2}
               class="d-block w-100"
               alt="..."
             />
           </div>
           <div class="carousel-item">
             <img
-              src={b1}
+              src={b3}
               class="d-block w-100"
               alt="..."
             />

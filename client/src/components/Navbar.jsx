@@ -120,7 +120,7 @@ const Navbar = ({ title, mode, text, toggleMode, notify }) => {
               className={`btn btn-${mode === "light" ? "dark" : "light"}`}
               onClick={notify}
             >
-              Toastify
+              Login
             </button>
           </div>
         </div>
