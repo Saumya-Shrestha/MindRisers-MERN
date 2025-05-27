@@ -67,7 +67,7 @@ function App() {
           />
           <Route
             path="/blog"
-            element={<Blog />}
+            element={<Blog mode={mode} />}
           />
         </Routes>
       </Router>
