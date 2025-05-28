@@ -5,8 +5,8 @@ import "../App.css";
 const One = (props) => {
   return (
     <div className={`bg-${props.mode} cardone`}>
-      <div className="container">
-        <h4 className={`text-${props.mode === "light" ? "dark" : "light"}`}>This Is Our Service</h4>
+      <div className="container py-5">
+        <h4 className={`text-${props.mode === "light" ? "dark" : "light"} text-center py-3`}>This Is Our Service</h4>
         <div className="row">
           <div className="col-md-4">
             <div className={`card bg-${props.mode}`}>
@@ -15,7 +15,7 @@ const One = (props) => {
                 className="card-img-top"
                 alt="..."
               />
-              <div className={`text-${props.mode === "light" ? "dark" : "light"} cardbody`}>
+              <div className={`text-${props.mode === "light" ? "dark" : "light"} cardbody text-center py-3`}>
                 <h5 className="card-title">Card title</h5>
                 <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
                 <a
@@ -34,7 +34,7 @@ const One = (props) => {
                 className="card-img-top"
                 alt="..."
               />
-              <div className={`text-${props.mode === "light" ? "dark" : "light"} cardbody`}>
+              <div className={`text-${props.mode === "light" ? "dark" : "light"} cardbody text-center py-3`}>
                 <h5 className="card-title">Card title</h5>
                 <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
                 <a
@@ -53,7 +53,7 @@ const One = (props) => {
                 className="card-img-top"
                 alt="..."
               />
-              <div className={`text-${props.mode === "light" ? "dark" : "light"} cardbody`}>
+              <div className={`text-${props.mode === "light" ? "dark" : "light"} cardbody text-center py-3`}>
                 <h5 className="card-title">Card title</h5>
                 <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
                 <a

@@ -10,7 +10,7 @@ const SmallBanner = ({ title }) => {
         alt="..."
         height={300}
       />
-      <h4 className="title">{title}</h4>
+      <h4 className="title fs-1 fw-bold">{title}</h4>
     </div>
   );
 };

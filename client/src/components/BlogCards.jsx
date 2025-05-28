@@ -1,5 +1,6 @@
 import React from "react";
 import b1 from "../assets/b1.jpg";
+import "../App.css";
 
 const BlogCards = (props) => {
   const Blogs = [
@@ -27,7 +28,7 @@ const BlogCards = (props) => {
 
   return (
     <div className={`bg-${props.mode} cardone`}>
-      <div className="container">
+      <div className="container py-5">
         <div className="row">
           {Blogs.map((blog) => (
             <div className="col-md-3">
@@ -37,7 +38,7 @@ const BlogCards = (props) => {
                   className="card-img-top"
                   alt="..."
                 />
-                <div className={`text-${props.mode === "light" ? "dark" : "light"} cardbody`}>
+                <div className={`text-${props.mode === "light" ? "dark" : "light"} cardbody text-center py-3`}>
                   <h5 className="card-title">{blog.title}</h5>
                   <p className="card-text">{blog.description}</p>
                   <a

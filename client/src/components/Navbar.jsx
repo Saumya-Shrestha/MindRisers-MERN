@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = ({ title, mode, text, toggleMode, notify }) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleAuthClick = () => {
+    const newLoginState = !isLoggedIn;
+    setIsLoggedIn(newLoginState);
+    notify(newLoginState);
+  };
+
   return (
     <div>
       <nav className={`navbar navbar-expand-lg navbar-${mode} bg-${mode}`}>
@@ -71,9 +79,9 @@ const Navbar = ({ title, mode, text, toggleMode, notify }) => {
             </button>
             <button
               className={`btn btn-${mode === "light" ? "dark" : "light"}`}
-              onClick={notify}
+              onClick={handleAuthClick}
             >
-              Login
+              {isLoggedIn ? "Logout" : "Login"}
             </button>
           </div>
         </div>
