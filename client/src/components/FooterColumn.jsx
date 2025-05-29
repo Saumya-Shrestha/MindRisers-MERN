@@ -1,52 +1,38 @@
 import React from "react";
 
-const FooterColumn = ({ mode }) => {
+const FooterColumn = ({ mode, title, customLinks }) => {
+  const defaultLinks = [
+    { text: "Our Rooms", url: "#rooms" },
+    { text: "Amenities", url: "#amenities" },
+    { text: "Dining", url: "#dining" },
+    { text: "Spa & Wellness", url: "#spa" },
+    { text: "Special Offers", url: "#offers" },
+  ];
+
+  const links = customLinks || defaultLinks;
+  const sectionTitle = title || "Accommodations";
+
   return (
-    <div className="col-6 col-md-2 mb-3">
-      <h5>Section</h5>
-      <ul className="nav flex-column">
-        <li className="nav-item mb-2">
-          <a
-            href="#"
-            className={`nav-link p-0 ${mode === "light" ? "text-body-secondary" : "text-light"}`}
-          >
-            Home
-          </a>
-        </li>
-        <li className="nav-item mb-2">
-          <a
-            href="#"
-            className={`nav-link p-0 ${mode === "light" ? "text-body-secondary" : "text-light"}`}
-          >
-            Features
-          </a>
-        </li>
-        <li className="nav-item mb-2">
-          <a
-            href="#"
-            className={`nav-link p-0 ${mode === "light" ? "text-body-secondary" : "text-light"}`}
-          >
-            Pricing
-          </a>
-        </li>
-        <li className="nav-item mb-2">
-          <a
-            href="#"
-            className={`nav-link p-0 ${mode === "light" ? "text-body-secondary" : "text-light"}`}
-          >
-            FAQs
-          </a>
-        </li>
-        <li className="nav-item mb-2">
-          <a
-            href="#"
-            className={`nav-link p-0 ${mode === "light" ? "text-body-secondary" : "text-light"}`}
-          >
-            About
-          </a>
-        </li>
-      </ul>
-    </div>
+    <>
+      <div className="col-md-2 mb-3">
+        <h5 className={`text-${mode === "light" ? "dark" : "light"}`}>{sectionTitle}</h5>
+        <ul className="nav flex-column">
+          {links.map((link, index) => (
+            <li
+              className="nav-item mb-2"
+              key={index}
+            >
+              <a
+                href={link.url}
+                className={`nav-link p-0 text-${mode === "light" ? "dark" : "light"}`}
+              >
+                {link.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 };
 

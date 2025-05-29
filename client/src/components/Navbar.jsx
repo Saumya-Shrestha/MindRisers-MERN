@@ -11,7 +11,7 @@ const Navbar = ({ title, mode, text, toggleMode, notify }) => {
   };
 
   return (
-    <div>
+    <>
       <nav className={`navbar navbar-expand-lg navbar-${mode} bg-${mode}`}>
         <div className="container-fluid">
           <Link
@@ -71,7 +71,7 @@ const Navbar = ({ title, mode, text, toggleMode, notify }) => {
               </li>
             </ul>
             <button
-              className={`mx-3 bg-transparent border-0 ${mode === "dark" ? "text-white" : "text-dark"}`}
+              className={`mx-3 bg-transparent border-0 text-${mode === "dark" ? "light" : "dark"}`}
               onClick={toggleMode}
               style={{ cursor: "pointer" }}
             >
@@ -86,7 +86,7 @@ const Navbar = ({ title, mode, text, toggleMode, notify }) => {
           </div>
         </div>
       </nav>
-    </div>
+    </>
   );
 };
 

@@ -2,7 +2,7 @@ import React from "react";
 
 const Form = ({ mode }) => {
   return (
-    <div>
+    <>
       <form className={`p-4 border rounded ${mode === "dark" ? "bg-dark border-secondary" : "bg-light"}`}>
         <p className={`${mode === "dark" ? "text-light dark-mode-input" : ""}`}>
           Please fill out the form below with your query or message. We strive to respond to all inquiries within 24 hours or before.
@@ -78,7 +78,7 @@ const Form = ({ mode }) => {
           Send Now
         </button>
       </form>
-    </div>
+    </>
   );
 };
 

@@ -1,7 +1,22 @@
-.cardone {
-  padding-bottom: 40px;
+/* ======= CSS Variables ======= */
+:root {
+  /* Color palette */
+  --dark-bg: #212529;
+  --darker-bg: #343a40;
+  --text-dark: #19191a;
+  --text-light: #ffffff;
+  --text-muted: #707079;
+  --text-muted-light: #ced4da;
+  --accent-color: #17181a;
+  --secondary-accent: #17181a;
+  --star-color: #f0db1e;
+  --border-color: #ebebeb;
+  --shadow-dark: rgba(255, 255, 255, 0.05);
+  --shadow-light: rgba(255, 255, 255, 0.1);
+  --transition-standard: all 0.3s ease;
 }
 
+/* ======= General Layout ======= */
 .banner-container {
   position: relative;
   width: 100%;
@@ -17,9 +32,264 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: var(--text-light);
 }
 
+/* ======= Hero/Banner Section ======= */
+.hero-text {
+  padding-top: 25px;
+}
+
+.hero-text h1 {
+  font-size: 80px;
+  line-height: 90px;
+  color: var(--text-light);
+  margin-bottom: 16px;
+}
+
+.hero-text p {
+  font-size: 18px;
+  color: var(--text-light);
+  line-height: 28px;
+  margin-bottom: 35px;
+}
+
+/* ======= Booking Form ======= */
+.booking-form {
+  background: var(--text-light);
+  padding: 44px 40px 50px;
+  border-radius: 4px;
+}
+
+.booking-form h3 {
+  color: var(--text-dark);
+  margin-bottom: 36px;
+}
+
+.booking-form form .check-date {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.booking-form form .check-date label,
+.booking-form form .select-option label {
+  font-size: 14px;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.booking-form form .check-date input {
+  width: 100%;
+  height: 50px;
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  font-size: 16px;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  font-weight: 500;
+  padding-left: 20px;
+}
+
+.booking-form form .check-date i {
+  color: var(--secondary-accent);
+  position: absolute;
+  right: 18px;
+  bottom: 17px;
+}
+
+.booking-form form select {
+  width: 100%;
+  height: 50px;
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  font-size: 16px;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  font-weight: 500;
+  padding-left: 20px;
+  background-color: var(--text-light);
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2317181a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+}
+
+.booking-form form .select-option {
+  margin-bottom: 15px;
+}
+
+.booking-form form button {
+  display: block;
+  font-size: 14px;
+  text-transform: uppercase;
+  border: 1px solid var(--secondary-accent);
+  border-radius: 2px;
+  color: var(--secondary-accent);
+  font-weight: 500;
+  background: transparent;
+  width: 100%;
+  height: 46px;
+  margin-top: 30px;
+}
+
+/* ======= Services Section ======= */
+.section-title {
+  margin-bottom: 48px;
+}
+
+.service-item {
+  text-align: center;
+  padding: 30px 35px 18px;
+  transition: var(--transition-standard);
+}
+
+.service-item:hover {
+  background: var(--dark-bg);
+}
+
+.service-item:hover i,
+.service-item:hover h4,
+.service-item:hover p {
+  color: var(--text-light);
+}
+
+.service-item i {
+  display: inline-block;
+  color: var(--text-dark);
+  font-size: 48px;
+  transition: var(--transition-standard);
+}
+
+.service-item h4 {
+  color: var(--text-dark);
+  font-size: 22px;
+  margin-bottom: 15px;
+  margin-top: 10px;
+  transition: var(--transition-standard);
+}
+
+.service-item p {
+  color: var(--text-muted);
+  transition: var(--transition-standard);
+}
+
+/* ======= Room Items ======= */
+.hp-room-items {
+  margin-left: -15px;
+  margin-right: -15px;
+  overflow: hidden;
+}
+
+.hp-room-item {
+  height: 600px;
+  margin-right: -15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hp-room-item:hover .hr-text {
+  bottom: 135px;
+}
+
+.hp-room-item:hover .hr-text h2 {
+  margin-bottom: 30px;
+  color: var(--text-dark);
+}
+
+.hp-room-item:hover img {
+  opacity: 0.8;
+  filter: brightness(0.4);
+}
+
+.hr-text {
+  position: absolute;
+  left: 45px;
+  right: 25px;
+  bottom: -250px;
+  transition: all 0.5s;
+}
+
+.hr-text h3 {
+  color: var(--text-light);
+  margin-bottom: 15px;
+}
+
+.hr-text h2 {
+  color: var(--text-light);
+  font-weight: 700;
+  margin-bottom: 50px;
+  transition: all 0.2s;
+}
+
+.hr-text h2 span {
+  font-family: "Cabin", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-light);
+}
+
+.hr-text table {
+  margin-bottom: 30px;
+}
+
+.hr-text table tbody tr td {
+  font-size: 16px;
+  color: var(--text-light);
+  line-height: 36px;
+}
+
+.hr-text table tbody tr td.r-o {
+  width: 120px;
+}
+
+/* ======= Blog Section ======= */
+.blog-item img {
+  width: 100%;
+  height: 440px;
+}
+
+/* Image hover effects */
+.blog-item.set-bg:hover img,
+.dark-gallery-item:hover img {
+  opacity: 1;
+  transform: scale(1.02);
+  transition: var(--transition-standard);
+}
+
+/* ======= Testimonial Section ======= */
+.testimonial .ts-item {
+  text-align: center;
+}
+
+.testimonial .ts-item p {
+  font-size: 20px;
+  color: var(--text-muted);
+  line-height: 30px;
+  margin-bottom: 50px;
+}
+
+.testimonial .ts-item .ti-author {
+  margin-bottom: 60px;
+}
+
+.testimonial .ts-item .ti-author .rating {
+  display: inline-block;
+}
+
+.testimonial .ts-item .ti-author .rating i {
+  color: var(--star-color);
+  font-size: 16px;
+}
+
+.testimonial .ts-item .ti-author h5 {
+  font-size: 20px;
+  color: var(--text-dark);
+  display: inline-block;
+}
+
+/* ======= Contact Section ======= */
 .contact-padding {
   padding: 0 120px !important;
 }
@@ -34,12 +304,109 @@
   display: block;
 }
 
-.dark-mode-input::placeholder {
-  color: #fff !important;
+/* ======= Dark Mode Styles ======= */
+/* Dark mode form elements */
+.dark-mode-input {
+  color: var(--text-light) !important;
   opacity: 0.7;
 }
 
-.dark-mode-input {
-  color: #fff !important;
+.dark-mode-input::placeholder {
+  color: var(--text-light) !important;
   opacity: 0.7;
+}
+
+/* Dark mode booking form */
+.dark-booking-form {
+  background: var(--dark-bg);
+  border: 1px solid var(--darker-bg);
+}
+
+.dark-booking-form h3 {
+  color: var(--text-light);
+}
+
+.dark-booking-form form .check-date i {
+  color: var(--text-light);
+}
+
+.dark-booking-form form select {
+  background-color: var(--darker-bg);
+  border-color: var(--darker-bg);
+  color: var(--text-light);
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+}
+
+.dark-booking-form form .check-date label,
+.dark-booking-form form .select-option label {
+  color: var(--text-muted-light);
+}
+
+.dark-booking-form form .check-date input,
+.dark-booking-form form .select-option .nice-select {
+  background: var(--darker-bg);
+  border-color: var(--darker-bg);
+  color: var(--text-light);
+}
+
+.dark-booking-form form button {
+  color: var(--text-light);
+  border-color: var(--text-light);
+}
+
+/* Dark mode components */
+/* Services */
+.dark-service {
+  background-color: var(--dark-bg);
+}
+
+.dark-service i,
+.dark-service h4 {
+  color: var(--text-light) !important;
+}
+
+.dark-service p {
+  color: var(--text-muted-light) !important;
+}
+
+.dark-service:hover {
+  background-color: var(--darker-bg) !important;
+}
+
+/* Gallery */
+.dark-gallery-item {
+  border: 1px solid var(--darker-bg);
+}
+
+.dark-gallery-item img {
+  opacity: 0.85;
+}
+
+/* Testimonials */
+.dark-ts-item p {
+  color: var(--text-muted-light) !important;
+}
+
+.dark-ts-item .ti-author h5 {
+  color: var(--text-light) !important;
+}
+
+/* Rooms */
+.dark-room {
+  background-color: var(--dark-bg);
+  border: 1px solid var(--darker-bg);
+}
+
+.dark-room-text h3,
+.dark-room-text h2,
+.dark-room-text span {
+  color: var(--text-light) !important;
+}
+
+.dark-room-text table {
+  color: var(--text-muted-light) !important;
+}
+
+.dark-room-text .r-o {
+  color: #adb5bd !important;
 }

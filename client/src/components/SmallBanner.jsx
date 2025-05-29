@@ -7,7 +7,7 @@ const SmallBanner = ({ title }) => {
       <img
         className="small-banner"
         src={bg}
-        alt="..."
+        alt="Banner Image"
         height={300}
       />
       <h4 className="title fs-1 fw-bold">{title}</h4>

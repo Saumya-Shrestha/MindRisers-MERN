@@ -3,23 +3,23 @@ import { ToastContainer, toast } from "react-toastify";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Blog from "./components/Blog";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Blog from "./pages/Blog";
 import Footer from "./components/Footer";
 
 function App() {
   const [mode, setMode] = useState("dark");
-  const [text, setText] = useState(<i class="fa-solid fa-sun"></i>);
+  const [text, setText] = useState(<i className="fa-solid fa-sun"></i>);
 
   const toggleMode = () => {
     if (mode == "dark") {
       setMode("light");
-      setText(<i class="fa-solid fa-moon"></i>);
+      setText(<i className="fa-solid fa-moon"></i>);
     } else {
       setMode("dark");
-      setText(<i class="fa-solid fa-sun"></i>);
+      setText(<i className="fa-solid fa-sun"></i>);
     }
   };
 
@@ -35,7 +35,10 @@ function App() {
         toggleMode={toggleMode}
         notify={notify}
       />
-      <ToastContainer />
+      <ToastContainer
+        hideProgressBar={false}
+        theme={mode}
+      />
 
       <Routes>
         <Route
