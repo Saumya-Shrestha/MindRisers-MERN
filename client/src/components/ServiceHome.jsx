@@ -38,12 +38,14 @@ const ServiceHome = ({ mode }) => {
 
   return (
     <>
-      <div className={`bg-${mode} pb-5`}>
+      <div className={`bg-${mode} pt-5`}>
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
               <div className="section-title">
-                <h2 className={`text-center mb-4 pt-4 fs-1 fw-bold text-${mode === "dark" ? "light" : "dark"}`}>Discover Our Services</h2>
+                <h2 className={`text-center mb-4 pt-4 fs-1 fw-bold ${mode === "light" ? "light-accent-icon" : "dark-accent-icon"}`}>
+                  Discover Our Services
+                </h2>
               </div>
             </div>
           </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
 
-const Newsletter = ({ mode }) => {
+const Newsletter = () => {
   return (
     <>
       <div className="col-md-5 offset-md-1 mb-3">
@@ -22,7 +22,7 @@ const Newsletter = ({ mode }) => {
               placeholder="Email address"
             />
             <Button
-              mode={mode}
+              mode="dark"
               text="Subscribe"
             />
           </div>

@@ -11,6 +11,8 @@ const Banner = ({ mode }) => {
         <div
           id="carouselExampleCaptions"
           className="carousel slide hero-section"
+          data-bs-ride="carousel"
+          data-bs-interval="5000"
         >
           <div className="carousel-indicators">
             <button
@@ -92,7 +94,7 @@ const Banner = ({ mode }) => {
                   <p>Our award-winning accommodations blend traditional elegance with modern comfort for an unforgettable stay.</p>
                   <a
                     href="#"
-                    className={`btn btn-${mode === "dark" ? "light" : "dark"} px-4 py-2`}
+                    className={`btn btn-dark ${mode === "light" ? "light-accent-button" : "dark-accent-button"} px-4 py-3`}
                   >
                     Discover Now
                   </a>
@@ -100,7 +102,7 @@ const Banner = ({ mode }) => {
               </div>
               <div className={`col-lg-5 offset-lg-1`}>
                 <div className={`booking-form ${mode === "dark" ? "dark-booking-form" : ""}`}>
-                  <h3>Booking Your Hotel</h3>
+                  <h3 className="text-center">Booking Your Hotel</h3>
                   <form action="#">
                     <div className="check-date">
                       <label htmlFor="date-in">Check In:</label>

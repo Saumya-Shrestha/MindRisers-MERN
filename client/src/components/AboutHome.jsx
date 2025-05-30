@@ -5,8 +5,8 @@ import b2 from "../assets/about/about-1.jpg";
 const AboutHome = ({ mode }) => {
   return (
     <>
-      <div className={`bg-${mode} pt-5`}>
-        <h2 className={`mb-4 pt-4 ${mode === "light" ? "text-dark" : "text-light"} text-center fs-1 fw-bold`}>About Us</h2>
+      <div className={`${mode === "dark" ? "bg-dark border-secondary" : "bg-light border-light-subtle"} border-bottom pt-5`}>
+        <h2 className={`mb-4 pt-4 ${mode === "light" ? "light-accent-icon" : "dark-accent-icon"} text-center fs-1 fw-bold`}>About Us</h2>
         <div className="container px-4 pb-5">
           <div className="row flex-lg-row-reverse align-items-center py-5">
             <div className="col-md-3">
@@ -38,7 +38,7 @@ const AboutHome = ({ mode }) => {
               <div className="d-grid gap-2 d-md-flex justify-content-md-start">
                 <button
                   type="button"
-                  className={`btn btn-${mode === "light" ? "dark" : "light"} btn-lg px-4 me-md-2`}
+                  className={`btn btn-dark ${mode === "light" ? "light-accent-button" : "dark-accent-button"} px-4 py-3`}
                 >
                   Read More
                 </button>

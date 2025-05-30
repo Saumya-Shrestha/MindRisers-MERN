@@ -2,13 +2,14 @@ import React from "react";
 import FooterColumn from "./FooterColumn";
 import Newsletter from "./Newsletter";
 import Copyright from "./Copyright";
+import "../App.css";
 
 const Footer = ({ mode }) => {
   return (
     <>
-      <div className={`bg-${mode}`}>
+      <div className="footer-section">
         <div className="container">
-          <footer className={`py-5 border-top text-${mode === "light" ? "dark" : "light border-secondary"}`}>
+          <footer className="py-5 text-light">
             <div className="row">
               <FooterColumn
                 mode={mode}
@@ -40,12 +41,12 @@ const Footer = ({ mode }) => {
                   { text: "Feedback", url: "/feedback" },
                 ]}
               />
-              <Newsletter mode={mode} />
+              <Newsletter />
             </div>
-            <Copyright mode={mode} />
           </footer>
         </div>
       </div>
+      <Copyright />
     </>
   );
 };

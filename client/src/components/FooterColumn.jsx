@@ -1,6 +1,6 @@
 import React from "react";
 
-const FooterColumn = ({ mode, title, customLinks }) => {
+const FooterColumn = ({ title, customLinks }) => {
   const defaultLinks = [
     { text: "Our Rooms", url: "#rooms" },
     { text: "Amenities", url: "#amenities" },
@@ -15,7 +15,7 @@ const FooterColumn = ({ mode, title, customLinks }) => {
   return (
     <>
       <div className="col-md-2 mb-3">
-        <h5 className={`text-${mode === "light" ? "dark" : "light"}`}>{sectionTitle}</h5>
+        <h5 className="text-light">{sectionTitle}</h5>
         <ul className="nav flex-column">
           {links.map((link, index) => (
             <li
@@ -24,7 +24,7 @@ const FooterColumn = ({ mode, title, customLinks }) => {
             >
               <a
                 href={link.url}
-                className={`nav-link p-0 text-${mode === "light" ? "dark" : "light"}`}
+                className="nav-link p-0 text-light"
               >
                 {link.text}
               </a>

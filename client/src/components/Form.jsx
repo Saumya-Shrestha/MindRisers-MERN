@@ -71,12 +71,15 @@ const Form = ({ mode }) => {
             ></textarea>
           </div>
         </div>
-        <button
-          type="submit"
-          className={`btn ${mode === "dark" ? "btn-light" : "btn-dark"} submit-btn`}
-        >
-          Send Now
-        </button>
+
+        <div className="col-12 text-end">
+          <button
+            type="submit"
+            className={`btn btn-dark ${mode === "light" ? "light-accent-button" : "dark-accent-button"} px-4 py-2`}
+          >
+            Send Now
+          </button>
+        </div>
       </form>
     </>
   );

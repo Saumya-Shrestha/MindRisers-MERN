@@ -47,8 +47,8 @@ const Room = ({ mode }) => {
 
   return (
     <>
-      <div className={`bg-${mode} py-5`}>
-        <div className="container-fluid">
+      <div className={`bg-${mode} pt-5`}>
+        <div className="container-fluid pt-5">
           <div className="hp-room-items">
             <div className="row">
               {rooms.map((room, index) => (
@@ -86,7 +86,7 @@ const Room = ({ mode }) => {
                           </tr>
                         </tbody>
                       </table>
-                      <button className={`btn ${mode === "dark" ? "btn-light" : "btn-dark"}`}>Read More</button>
+                      <button className={`btn btn-dark ${mode === "light" ? "light-accent-button" : "dark-accent-button"}`}>Read More</button>
                     </div>
                   </div>
                 </div>

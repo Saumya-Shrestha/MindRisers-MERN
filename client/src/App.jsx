@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -23,7 +24,7 @@ function App() {
     }
   };
 
-  let title = "Hamro Hotel";
+  let title = "HAMRO HOTEL";
   const notify = (isLogin) => toast(isLogin ? "Login Successful" : "Logout Successful");
 
   return (
