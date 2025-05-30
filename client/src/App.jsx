@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
@@ -11,11 +11,23 @@ import Blog from "./pages/Blog";
 import Footer from "./components/Footer";
 
 function App() {
-  const [mode, setMode] = useState("dark");
+  const [mode, setMode] = useState("light");
   const [text, setText] = useState(<i className="fa-solid fa-sun"></i>);
 
+  useEffect(() => {
+    const savedMode = localStorage.getItem("theme");
+    if (savedMode) {
+      setMode(savedMode);
+      setText(savedMode === "dark" ? <i className="fa-solid fa-sun"></i> : <i className="fa-solid fa-moon"></i>);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("theme", mode);
+  }, [mode]);
+
   const toggleMode = () => {
-    if (mode == "dark") {
+    if (mode === "dark") {
       setMode("light");
       setText(<i className="fa-solid fa-moon"></i>);
     } else {

@@ -394,7 +394,7 @@ body {
   border: 1px solid var(--darker-bg);
 }
 
-.dark-room:hover h2 {
+.dark-room:hover .dark-room-text h2 {
   color: var(--dark-mode-accent);
 }
 
@@ -462,11 +462,11 @@ body {
 
 /* Dark mode testimonials */
 .dark-ts-item p {
-  color: var(--text-muted-light);
+  color: var(--text-muted-light) !important;
 }
 
 .dark-ts-item .ti-author h5 {
-  color: var(--text-light);
+  color: var(--text-muted-light) !important;
 }
 
 /* ======= Contact Section ======= */
@@ -486,4 +486,35 @@ body {
 
 .copyright-section {
   background-color: var(--copyright-bg);
+}
+
+/* ======= Pagination Control ======= */
+.pagination .page-link {
+  color: #212529;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: var(--light-mode-accent);
+  border-color: var(--light-mode-accent);
+  color: fff;
+}
+
+.pagination .page-item.disabled .page-link {
+  color: #6c757d;
+  pointer-events: none;
+}
+
+/* Dark mode adjustments */
+.bg-dark .pagination .page-link {
+  background-color: #343a40;
+  color: #f8f9fa;
+  border-color: #495057;
+}
+
+.bg-dark .pagination .page-item.active .page-link {
+  background-color: var(--dark-mode-accent);
+  border-color: var(--dark-mode-accent);
+  color: #fff;
 }
