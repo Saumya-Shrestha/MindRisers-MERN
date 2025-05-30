@@ -57,23 +57,23 @@ body {
 
 /* Theme accent classes */
 .light-accent-icon {
-  color: var(--light-mode-accent);
+  color: var(--light-mode-accent) !important;
 }
 
 .light-accent-button {
-  color: var(--text-light);
-  background: var(--light-mode-accent);
-  border: none;
+  color: var(--text-light) !important;
+  background: var(--light-mode-accent) !important;
+  border: none !important;
 }
 
 .dark-accent-icon {
-  color: var(--dark-mode-accent);
+  color: var(--dark-mode-accent) !important;
 }
 
 .dark-accent-button {
-  color: var(--text-light);
-  background: var(--dark-mode-accent);
-  border: none;
+  color: var(--text-light) !important;
+  background: var(--dark-mode-accent) !important;
+  border: none !important;
 }
 
 /* Dark mode inputs */

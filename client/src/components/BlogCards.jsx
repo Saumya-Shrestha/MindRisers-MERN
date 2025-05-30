@@ -40,7 +40,7 @@ const BlogCards = ({ mode }) => {
                       style={{ height: "200px", objectFit: "cover" }}
                     />
                     <div className={`text-${mode === "light" ? "dark" : "light"} card-body py-3 d-flex flex-column`}>
-                      <div className={`small text-${mode === "light" ? "muted" : "light-emphasis"} pb-3`}>
+                      <div className={`small text-${mode === "light" ? "muted" : "white-50"} pb-3`}>
                         <div className="d-flex flex-wrap justify-content-between mb-2">
                           {article.source?.name && (
                             <div className="me-2">
@@ -62,18 +62,20 @@ const BlogCards = ({ mode }) => {
                       <p className="card-text small mb-5">{article.description}</p>
 
                       <div className="d-flex justify-content-between align-items-center mt-auto">
-                        {article.publishedAt && (
-                          <div>
-                            <i className="bi bi-calendar me-1"></i>
-                            <span>
-                              {new Date(article.publishedAt).toLocaleDateString("en-US", {
-                                year: "numeric",
-                                month: "short",
-                                day: "numeric",
-                              })}
-                            </span>
-                          </div>
-                        )}
+                        <div className={`text-${mode === "light" ? "muted" : "white-50"}`}>
+                          {article.publishedAt && (
+                            <div>
+                              <i className="bi bi-calendar me-1"></i>
+                              <span>
+                                {new Date(article.publishedAt).toLocaleDateString("en-US", {
+                                  year: "numeric",
+                                  month: "short",
+                                  day: "numeric",
+                                })}
+                              </span>
+                            </div>
+                          )}
+                        </div>
 
                         <button className={`btn btn-dark ${mode === "light" ? "light-accent-button" : "dark-accent-button"} px-4 py-2`}>
                           Read More
