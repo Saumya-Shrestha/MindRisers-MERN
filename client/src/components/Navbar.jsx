@@ -55,6 +55,14 @@ const Navbar = ({ title, mode, text, toggleMode, notify }) => {
                 Contact Us
               </Link>
             </li>
+            <li className="nav-item">
+              <Link
+                className="nav-link"
+                to="/userlist"
+              >
+                Userlist
+              </Link>
+            </li>
           </ul>
           <button
             className={`mx-3 bg-transparent border-0 ${mode === "light" ? "light-accent-icon" : "dark-accent-icon"}`}

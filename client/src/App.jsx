@@ -9,6 +9,8 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import Footer from "./components/Footer";
+import UserList from "./components/UserList";
+import UserDetail from "./components/UserDetail";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -69,6 +71,14 @@ function App() {
         <Route
           path="/contact"
           element={<Contact mode={mode} />}
+        />
+        <Route
+          path="/userlist"
+          element={<UserList />}
+        />
+        <Route
+          path="userlist/:id/:username/:age"
+          element={<UserDetail />}
         />
       </Routes>
 
