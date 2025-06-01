@@ -9,7 +9,7 @@ const BlogCards = ({ mode }) => {
     try {
       const response = await fetch("https://newsapi.org/v2/top-headlines?country=us&apiKey=e09d9f7d5a38417fac4d41c193572a25");
       const data = await response.json();
-      setnews(data);
+      setnews(data.articles);
     } catch (error) {
       console.error("Error fetching news:", error);
       setnews({ articles: [] });
@@ -26,8 +26,8 @@ const BlogCards = ({ mode }) => {
         <div className="container py-5">
           <div className="row">
             <h4 className={`${mode === "light" ? "light-accent-icon" : "dark-accent-icon"} fs-2 fw-bold text-center pb-4`}>Our Latest Blogs</h4>
-            {news.articles &&
-              news.articles.map((article, index) => (
+            {news &&
+              news.map((article, index) => (
                 <div
                   className="col-md-3 mb-4"
                   key={index}
