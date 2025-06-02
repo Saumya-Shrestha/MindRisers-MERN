@@ -11,6 +11,8 @@ import Blog from './pages/Blog';
 import Footer from './components/Footer';
 import UserList from './components/UserList';
 import UserDetail from './components/UserDetail';
+import ProductState from './context/ProductState';
+import { UserProvider } from './context/UserContext';
 
 function App() {
   const [mode, setMode] = useState(localStorage.getItem('theme') || 'light');
@@ -35,46 +37,50 @@ function App() {
 
   return (
     <>
-      <Navbar
-        title={title}
-        mode={mode}
-        text={text}
-        toggleMode={toggleMode}
-        notify={notify}
-      />
-      <ToastContainer
-        hideProgressBar={false}
-        theme={mode}
-      />
+      <ProductState>
+        <UserProvider>
+          <Navbar
+            title={title}
+            mode={mode}
+            text={text}
+            toggleMode={toggleMode}
+            notify={notify}
+          />
+          <ToastContainer
+            hideProgressBar={false}
+            theme={mode}
+          />
 
-      <Routes>
-        <Route
-          path='/'
-          element={<Home mode={mode} />}
-        />
-        <Route
-          path='/about'
-          element={<About mode={mode} />}
-        />
-        <Route
-          path='/blog'
-          element={<Blog mode={mode} />}
-        />
-        <Route
-          path='/contact'
-          element={<Contact mode={mode} />}
-        />
-        <Route
-          path='/userlist'
-          element={<UserList />}
-        />
-        <Route
-          path='userlist/:id/:username/:age'
-          element={<UserDetail />}
-        />
-      </Routes>
+          <Routes>
+            <Route
+              path='/'
+              element={<Home mode={mode} />}
+            />
+            <Route
+              path='/about'
+              element={<About mode={mode} />}
+            />
+            <Route
+              path='/blog'
+              element={<Blog mode={mode} />}
+            />
+            <Route
+              path='/contact'
+              element={<Contact mode={mode} />}
+            />
+            <Route
+              path='/userlist'
+              element={<UserList />}
+            />
+            <Route
+              path='userlist/:id/:username/:age'
+              element={<UserDetail />}
+            />
+          </Routes>
 
-      <Footer mode={mode} />
+          <Footer mode={mode} />
+        </UserProvider>
+      </ProductState>
     </>
   );
 }

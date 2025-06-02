@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import b1 from '../assets/blog/blog-1.jpg';
 import b2 from '../assets/blog/blog-2.jpg';
 import SmallBanner from '../components/SmallBanner';
 import AboutCard from '../components/AboutCard';
+import ProductContext from '../context/ProductContext';
+import { UserContext } from '../context/UserContext';
 
 const About = ({ mode }) => {
+  const context = useContext(ProductContext);
+  const { product, count, news, fetchData } = context;
+  console.log('Product: ', product);
+  console.log('Count: ', count);
+  console.log('News:', news);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const userContext = useContext(UserContext);
+  const { user } = userContext;
+  console.log('User: ', user);
+
   return (
     <div className={`bg-${mode} text-${mode === 'light' ? 'dark' : 'light'}`}>
       <SmallBanner
@@ -41,6 +57,14 @@ const About = ({ mode }) => {
             image={b2}
           />
         </div>
+      </div>
+
+      <div className='container py-5'>
+        <h4>Product Details:</h4>
+        <h5>Product ID: {product.id} </h5>
+        <h5>Product Name: {product.name} </h5>
+        <h5>Product Description: {product.description} </h5>
+        <h5>Product Price: {product.price} </h5>
       </div>
     </div>
   );
