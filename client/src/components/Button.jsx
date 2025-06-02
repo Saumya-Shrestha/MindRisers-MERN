@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 const Button = ({ mode, text }) => {
   return (
     <>
-      <button className={`btn btn-${mode === "light" ? "dark" : "light"}`}>{text}</button>
+      <button className={`btn btn-${mode === 'light' ? 'dark' : 'light'}`}>{text}</button>
     </>
   );
 };

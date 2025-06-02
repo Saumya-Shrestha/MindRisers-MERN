@@ -1,5 +1,5 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const UserList = () => {
   const navigate = useNavigate();
@@ -7,34 +7,34 @@ const UserList = () => {
   const users = [
     {
       _id: 1,
-      name: "John",
+      name: 'John',
       age: 25,
     },
     {
       _id: 2,
-      name: "Anna",
+      name: 'Anna',
       age: 30,
     },
     {
       _id: 3,
-      name: "Peter",
+      name: 'Peter',
       age: 35,
     },
     {
       _id: 4,
-      name: "Linda",
+      name: 'Linda',
       age: 40,
     },
   ];
 
   const handleUser = (user) => {
-    console.log("You clicked on user: ", user.name);
+    console.log('You clicked on user: ', user.name);
     navigate(`${user._id}/${user.name}/${user.age}`);
   };
 
   return (
     <>
-      <div className="container py-5">
+      <div className='container py-5'>
         <h4>Our User List</h4>
         <ul>
           {users.map((user) => {

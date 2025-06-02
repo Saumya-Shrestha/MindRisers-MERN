@@ -1,3 +1,3 @@
-import { b } from "./Module1.mjs";
+import { b } from './Module1.mjs';
 
-console.log("This is value of b: ", b);
+console.log('This is value of b: ', b);

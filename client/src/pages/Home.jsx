@@ -1,11 +1,11 @@
-import React from "react";
-import Banner from "../components/Banner";
-import ServiceHome from "../components/ServiceHome";
-import Room from "../components/Room";
-import Testimonial from "../components/Testimonial";
-import Gallery from "../components/Gallery";
-import AboutHome from "../components/AboutHome";
-import ContactHome from "../components/ContactHome";
+import React from 'react';
+import Banner from '../components/Banner';
+import ServiceHome from '../components/ServiceHome';
+import Room from '../components/Room';
+import Testimonial from '../components/Testimonial';
+import Gallery from '../components/Gallery';
+import AboutHome from '../components/AboutHome';
+import ContactHome from '../components/ContactHome';
 
 const Home = ({ mode }) => {
   return (

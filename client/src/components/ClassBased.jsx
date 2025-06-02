@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 //*What is reconcilation?
 
@@ -6,22 +6,22 @@ export default class ClassBased extends Component {
   constructor(props) {
     super(props);
     this.state = { count: 0 };
-    console.log("constructor: initialized");
+    console.log('constructor: initialized');
   }
 
   // Mounting
   componentDidMount() {
-    console.log("componentDidMount: mounted");
+    console.log('componentDidMount: mounted');
   }
 
   // Updating
   componentDidUpdate() {
-    console.log("componentDidUpdate: updated");
+    console.log('componentDidUpdate: updated');
   }
 
   // Unmounting
   componentWillUnmount() {
-    console.log("componentWillUnmount: unmounted");
+    console.log('componentWillUnmount: unmounted');
   }
 
   render() {
