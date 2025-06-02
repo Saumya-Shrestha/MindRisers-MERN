@@ -27,9 +27,9 @@ const UserList = () => {
     },
   ];
 
-  const handleUser = (userId, userName, userAge) => {
-    console.log("You clicked on user: ", userName);
-    navigate(`${userId}/${userName}/${userAge}`);
+  const handleUser = (user) => {
+    console.log("You clicked on user: ", user.name);
+    navigate(`${user._id}/${user.name}/${user.age}`);
   };
 
   return (
@@ -41,7 +41,7 @@ const UserList = () => {
             return (
               <li
                 key={user._id}
-                onClick={() => handleUser(user._id, user.name, user.age)}
+                onClick={() => handleUser(user)}
               >
                 {user.name}
               </li>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
@@ -13,28 +13,20 @@ import UserList from "./components/UserList";
 import UserDetail from "./components/UserDetail";
 
 function App() {
-  const [mode, setMode] = useState("light");
-  const [text, setText] = useState(<i className="fa-solid fa-sun"></i>);
-
-  useEffect(() => {
-    const savedMode = localStorage.getItem("theme");
-    if (savedMode) {
-      setMode(savedMode);
-      setText(savedMode === "dark" ? <i className="fa-solid fa-sun"></i> : <i className="fa-solid fa-moon"></i>);
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("theme", mode);
-  }, [mode]);
+  const [mode, setMode] = useState(localStorage.getItem("theme") || "light");
+  const [text, setText] = useState(
+    localStorage.getItem("theme") === "dark" ? <i className="fa-solid fa-sun"></i> : <i className="fa-solid fa-moon"></i>
+  );
 
   const toggleMode = () => {
     if (mode === "dark") {
       setMode("light");
       setText(<i className="fa-solid fa-moon"></i>);
+      localStorage.setItem("theme", "light");
     } else {
       setMode("dark");
       setText(<i className="fa-solid fa-sun"></i>);
+      localStorage.setItem("theme", "dark");
     }
   };
 
