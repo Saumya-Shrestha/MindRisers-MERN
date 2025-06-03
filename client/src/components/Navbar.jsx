@@ -71,12 +71,14 @@ const Navbar = ({ title, mode, text, toggleMode, notify }) => {
           >
             {text}
           </button>
-          <button
-            className={`btn btn-dark ${mode === 'light' ? 'light-accent-button' : 'dark-accent-button'} px-4 py-2`}
-            onClick={handleAuthClick}
-          >
-            {isLoggedIn ? 'Logout' : 'Login'}
-          </button>
+          <Link to='/login'>
+            <button
+              className={`btn btn-dark ${mode === 'light' ? 'light-accent-button' : 'dark-accent-button'} px-4 py-2`}
+              onClick={handleAuthClick}
+            >
+              {isLoggedIn ? 'Logout' : 'Login'}
+            </button>
+          </Link>
         </div>
       </nav>
     </>

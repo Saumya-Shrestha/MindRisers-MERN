@@ -13,6 +13,8 @@ import UserList from './components/UserList';
 import UserDetail from './components/UserDetail';
 import ProductState from './context/ProductState';
 import { UserProvider } from './context/UserContext';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 function App() {
   const [mode, setMode] = useState(localStorage.getItem('theme') || 'light');
@@ -75,6 +77,14 @@ function App() {
             <Route
               path='userlist/:id/:username/:age'
               element={<UserDetail />}
+            />
+            <Route
+              path='/login'
+              element={<Login mode={mode} />}
+            />
+            <Route
+              path='/signup'
+              element={<Signup mode={mode} />}
             />
           </Routes>
 

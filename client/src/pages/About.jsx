@@ -15,6 +15,7 @@ const About = ({ mode }) => {
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const userContext = useContext(UserContext);
@@ -65,6 +66,14 @@ const About = ({ mode }) => {
         <h5>Product Name: {product.name} </h5>
         <h5>Product Description: {product.description} </h5>
         <h5>Product Price: {product.price} </h5>
+      </div>
+
+      <div className='container py-5'>
+        <h4>User Details:</h4>
+        <h5>User Name: {user.name} </h5>
+        <h5>User ID: {user.id} </h5>
+        <h5>User Gender: {user.gender} </h5>
+        <h5>User Age: {user.age} </h5>
       </div>
     </div>
   );
