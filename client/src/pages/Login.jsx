@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import b1 from '../assets/blog/blog-1.jpg';
 import { Link } from 'react-router-dom';
 import SmallBanner from '../components/SmallBanner';
 import '../App.css';
 
 const Login = ({ mode }) => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [credential, setCredential] = useState({
+    email: '',
+    password: '',
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Login form has been submitted');
+  };
+
+  const handleChange = (e) => {
+    setCredential({ ...credential, [e.target.name]: e.target.value });
+    // console.log(credential);
+  };
+
   return (
     <>
       <SmallBanner
@@ -27,11 +43,17 @@ const Login = ({ mode }) => {
             </div>
           </div>
           <div className='col-md-6 d-flex align-items-center'>
-            <form className={`w-100 ${mode === 'dark' ? 'text-light' : 'text-dark'}`}>
+            <form
+              className={`w-100 ${mode === 'dark' ? 'text-light' : 'text-dark'} `}
+              onSubmit={handleSubmit}
+            >
               <div className='form-outline mb-4'>
                 <label className={`form-label ${mode === 'dark' ? 'text-light' : ''}`}>Email</label>
                 <input
                   type='email'
+                  name='email'
+                  value={credential.email}
+                  onChange={handleChange}
                   id='loginName'
                   className={`form-control ${mode === 'dark' ? 'dark-mode-input' : ''}`}
                 />
@@ -39,16 +61,28 @@ const Login = ({ mode }) => {
 
               <div className='form-outline mb-4'>
                 <label className={mode === 'dark' ? 'text-light' : ''}>Password</label>
-                <input
-                  type='password'
-                  id='loginPassword'
-                  className={`form-control ${mode === 'dark' ? 'dark-mode-input' : ''}`}
-                />
+                <div className='input-group'>
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    name='password'
+                    value={credential.password}
+                    onChange={handleChange}
+                    id='loginPassword'
+                    className={`form-control ${mode === 'dark' ? 'dark-mode-input' : ''}`}
+                  />
+                  <span
+                    className='input-group-text'
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => setShowPassword((prev) => !prev)}
+                  >
+                    {showPassword ? <i className='bi bi-eye-slash'></i> : <i className='bi bi-eye'></i>}
+                  </span>
+                </div>
               </div>
 
               <div className='row mb-4'>
                 <div className='col-md-6 d-flex justify-content-center small'>
-                  <div className='form-check mb-3'>
+                  <div className='form-check'>
                     <input
                       className='form-check-input'
                       type='checkbox'

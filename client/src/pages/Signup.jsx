@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import b1 from '../assets/blog/blog-1.jpg';
 import { Link } from 'react-router-dom';
 import '../App.css';
 import SmallBanner from '../components/SmallBanner';
 
 const Signup = ({ mode }) => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   return (
     <>
       <SmallBanner
@@ -29,7 +31,7 @@ const Signup = ({ mode }) => {
           <div className='col-md-6 d-flex align-items-center'>
             <form className={`w-100 ${mode === 'dark' ? 'text-light' : 'text-dark'}`}>
               <div className='form-outline mb-4'>
-                <label className={`form-label ${mode === 'dark' ? 'text-light' : ''}`}>Email</label>
+                <label className={`${mode === 'dark' ? 'text-light' : ''}`}>Email</label>
                 <input
                   type='email'
                   id='registerEmail'
@@ -38,21 +40,39 @@ const Signup = ({ mode }) => {
               </div>
 
               <div className='form-outline mb-4'>
-                <label className={`form-label ${mode === 'dark' ? 'text-light' : ''}`}>Password</label>
-                <input
-                  type='password'
-                  id='registerPassword'
-                  className={`form-control ${mode === 'dark' ? 'dark-mode-input' : ''}`}
-                />
+                <label className={`${mode === 'dark' ? 'text-light' : ''}`}>Password</label>
+                <div className='input-group'>
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    id='registerPassword'
+                    className={`form-control ${mode === 'dark' ? 'dark-mode-input' : ''}`}
+                  />
+                  <span
+                    className='input-group-text'
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => setShowPassword((prev) => !prev)}
+                  >
+                    {showPassword ? <i className='bi bi-eye-slash'></i> : <i className='bi bi-eye'></i>}
+                  </span>
+                </div>
               </div>
 
               <div className='form-outline mb-4'>
-                <label className={`form-label ${mode === 'dark' ? 'text-light' : ''}`}>Confirm password</label>
-                <input
-                  type='password'
-                  id='registerRepeatPassword'
-                  className={`form-control ${mode === 'dark' ? 'dark-mode-input' : ''}`}
-                />
+                <label className={`${mode === 'dark' ? 'text-light' : ''}`}>Confirm password</label>
+                <div className='input-group'>
+                  <input
+                    type={showConfirmPassword ? 'text' : 'password'}
+                    id='registerRepeatPassword'
+                    className={`form-control ${mode === 'dark' ? 'dark-mode-input' : ''}`}
+                  />
+                  <span
+                    className='input-group-text'
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => setShowConfirmPassword((prev) => !prev)}
+                  >
+                    {showConfirmPassword ? <i className='bi bi-eye-slash'></i> : <i className='bi bi-eye'></i>}
+                  </span>
+                </div>
               </div>
 
               <div className='d-flex justify-content-center'>

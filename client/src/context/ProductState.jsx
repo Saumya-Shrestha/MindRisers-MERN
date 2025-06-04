@@ -3,12 +3,38 @@ import ProductContext from './ProductContext';
 import { useState } from 'react';
 
 const ProductState = (props) => {
-  const product = {
-    id: 1,
-    name: 'Apple',
-    description: 'This is a local product of mustang',
-    price: 200,
-  };
+  const products = [
+    {
+      _id: 1,
+      title: 'Apple',
+      description: 'This is a local product of mustang',
+      price: 200,
+      instock: 5,
+    },
+    {
+      _id: 2,
+      title: 'Mango',
+      description: 'This is a local product of terai',
+      price: 300,
+      instock: 5,
+    },
+    {
+      _id: 3,
+      title: 'Banana',
+      description: 'This is a local product of gorkha',
+      price: 150,
+      instock: 5,
+    },
+    {
+      _id: 4,
+      title: 'Apple',
+      description: 'This is a local product of gorkha',
+      price: 400,
+      instock: 5,
+    },
+  ];
+
+  const [product, setProduct] = useState(products);
 
   const [count, setCount] = useState(10);
 
@@ -27,7 +53,7 @@ const ProductState = (props) => {
 
   return (
     <>
-      <ProductContext.Provider value={{ product, count, setCount, news, fetchData }}>{props.children}</ProductContext.Provider>
+      <ProductContext.Provider value={{ product, setProduct, count, setCount, news, fetchData }}>{props.children}</ProductContext.Provider>
     </>
   );
 };
