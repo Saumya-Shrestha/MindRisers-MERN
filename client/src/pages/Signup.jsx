@@ -13,7 +13,7 @@ const Signup = ({ mode }) => {
       />
       <div className={`container-flex d-flex justify-content-center align-items-center login-container bg-${mode}`}>
         <div className='row'>
-          <div className='col-12'>
+          <div className='col-md-12'>
             <h2 className={`fs-2 fw-bold text-center pb-4 ${mode === 'dark' ? 'text-light' : 'text-dark'}`}>Create an Account</h2>
           </div>
           <div className='col-md-6'>
