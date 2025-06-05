@@ -1,18 +1,34 @@
 import React, { useState } from 'react';
 import b1 from '../assets/blog/blog-1.jpg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SmallBanner from '../components/SmallBanner';
 import '../App.css';
 
 const Login = ({ mode }) => {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [credential, setCredential] = useState({
     email: '',
     password: '',
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const { email, password } = credential;
+    const response = await fetch('http://localhost:5000/api/auth/login', {
+      method: 'POST',
+      headers: {
+        'content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    });
+    const data = await response.json();
+    if (data.success) {
+      localStorage.setItem('token', 'xyz');
+      navigate('/');
+    } else {
+      console.log('Invalid Credentials');
+    }
     console.log('Login form has been submitted');
   };
 

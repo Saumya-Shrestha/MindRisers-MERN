@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = ({ title, mode, text, toggleMode, notify }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+const Navbar = ({ title, mode, text, toggleMode }) => {
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const handleAuthClick = () => {
-    const newLoginState = !isLoggedIn;
-    setIsLoggedIn(newLoginState);
-    notify(newLoginState);
-  };
+  // const handleAuthClick = () => {
+  //   const newLoginState = !isLoggedIn;
+  //   setIsLoggedIn(newLoginState);
+  //   notify(newLoginState);
+  // };
 
   return (
     <>
@@ -82,9 +82,10 @@ const Navbar = ({ title, mode, text, toggleMode, notify }) => {
           <Link to='/login'>
             <button
               className={`btn btn-dark ${mode === 'light' ? 'light-accent-button' : 'dark-accent-button'} px-4 py-2`}
-              onClick={handleAuthClick}
+              // onClick={handleAuthClick}
             >
-              {isLoggedIn ? 'Logout' : 'Login'}
+              {/* {isLoggedIn ? 'Logout' : 'Login'} */}
+              Login
             </button>
           </Link>
         </div>

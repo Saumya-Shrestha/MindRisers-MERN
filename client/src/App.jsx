@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+// import { ToastContainer, toast } from 'react-toastify';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -37,7 +37,7 @@ function App() {
   };
 
   let title = 'HAMRO HOTEL';
-  const notify = (isLogin) => toast(isLogin ? 'Login Successful' : 'Logout Successful');
+  // const notify = (isLogin) => toast(isLogin ? 'Login Successful' : 'Logout Successful');
 
   return (
     <>
@@ -48,12 +48,12 @@ function App() {
             mode={mode}
             text={text}
             toggleMode={toggleMode}
-            notify={notify}
+            // notify={notify}
           />
-          <ToastContainer
+          {/* <ToastContainer
             hideProgressBar={false}
             theme={mode}
-          />
+          /> */}
 
           <Routes>
             <Route

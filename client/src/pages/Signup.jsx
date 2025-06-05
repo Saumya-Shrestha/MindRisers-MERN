@@ -1,12 +1,48 @@
 import React, { useState } from 'react';
 import b1 from '../assets/blog/blog-1.jpg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../App.css';
 import SmallBanner from '../components/SmallBanner';
 
 const Signup = ({ mode }) => {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [credential, setCredential] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { name, email, password, confirmPassword } = credential;
+    if (password !== confirmPassword) {
+      alert('Passwords do not match!');
+      return;
+    }
+    const response = await fetch('http://localhost:5000/api/auth/signup', {
+      method: 'POST',
+      headers: {
+        'content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, email, password, confirmPassword }),
+    });
+    const data = await response.json();
+    if (data.success) {
+      localStorage.setItem('token', 'xyz');
+      navigate('/login');
+    } else {
+      console.log('Invalid Credentials');
+    }
+    console.log('Register form has been submitted');
+  };
+
+  const handleChange = (e) => {
+    setCredential({ ...credential, [e.target.name]: e.target.value });
+    // console.log(credential);
+  };
   return (
     <>
       <SmallBanner
@@ -29,11 +65,29 @@ const Signup = ({ mode }) => {
             </div>
           </div>
           <div className='col-md-6 d-flex align-items-center'>
-            <form className={`w-100 ${mode === 'dark' ? 'text-light' : 'text-dark'}`}>
+            <form
+              className={`w-100 ${mode === 'dark' ? 'text-light' : 'text-dark'} `}
+              onSubmit={handleSubmit}
+            >
+              <div className='form-outline mb-4'>
+                <label className={`${mode === 'dark' ? 'text-light' : ''}`}>Name</label>
+                <input
+                  type='text'
+                  name='name'
+                  value={credential.name}
+                  onChange={handleChange}
+                  id='registerName'
+                  className={`form-control ${mode === 'dark' ? 'dark-mode-input' : ''}`}
+                />
+              </div>
+
               <div className='form-outline mb-4'>
                 <label className={`${mode === 'dark' ? 'text-light' : ''}`}>Email</label>
                 <input
                   type='email'
+                  name='email'
+                  value={credential.email}
+                  onChange={handleChange}
                   id='registerEmail'
                   className={`form-control ${mode === 'dark' ? 'dark-mode-input' : ''}`}
                 />
@@ -44,6 +98,9 @@ const Signup = ({ mode }) => {
                 <div className='input-group'>
                   <input
                     type={showPassword ? 'text' : 'password'}
+                    name='password'
+                    value={credential.password}
+                    onChange={handleChange}
                     id='registerPassword'
                     className={`form-control ${mode === 'dark' ? 'dark-mode-input' : ''}`}
                   />
@@ -62,6 +119,9 @@ const Signup = ({ mode }) => {
                 <div className='input-group'>
                   <input
                     type={showConfirmPassword ? 'text' : 'password'}
+                    name='confirmPassword'
+                    value={credential.confirmPassword}
+                    onChange={handleChange}
                     id='registerRepeatPassword'
                     className={`form-control ${mode === 'dark' ? 'dark-mode-input' : ''}`}
                   />
