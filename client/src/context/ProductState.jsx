@@ -39,7 +39,7 @@ const ProductState = (props) => {
 
   const [state, dispatch] = useReducer(cartReducer, {
     products: product,
-    cart: 'Add to cart',
+    cart: [],
   });
 
   const [count, setCount] = useState(10);

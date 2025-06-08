@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import ProductContext from '../context/ProductContext';
+import { FaShoppingCart } from 'react-icons/fa';
 
 const Navbar = ({ title, mode, text, toggleMode }) => {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -9,6 +11,13 @@ const Navbar = ({ title, mode, text, toggleMode }) => {
   //   setIsLoggedIn(newLoginState);
   //   notify(newLoginState);
   // };
+
+  const context = useContext(ProductContext);
+
+  const {
+    state: { cart },
+  } = context;
+  console.log('Nav Cart: ', cart);
 
   return (
     <>
@@ -20,7 +29,6 @@ const Navbar = ({ title, mode, text, toggleMode }) => {
           >
             {title}
           </Link>
-
           <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
             <li className='nav-item'>
               <Link
@@ -72,6 +80,18 @@ const Navbar = ({ title, mode, text, toggleMode }) => {
               </Link>
             </li>
           </ul>
+
+          <button
+            className={`mx-3 bg-transparent border-0 ${mode === 'light' ? 'light-accent-icon' : 'dark-accent-icon'} position-relative`}
+            style={{ cursor: 'pointer' }}
+          >
+            <FaShoppingCart />
+            <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>
+              {cart.length}
+              <span className='visually-hidden'>unread messages</span>
+            </span>
+          </button>
+
           <button
             className={`mx-3 bg-transparent border-0 ${mode === 'light' ? 'light-accent-icon' : 'dark-accent-icon'}`}
             onClick={toggleMode}
@@ -79,6 +99,7 @@ const Navbar = ({ title, mode, text, toggleMode }) => {
           >
             {text}
           </button>
+
           <Link to='/login'>
             <button
               className={`btn btn-dark ${mode === 'light' ? 'light-accent-button' : 'dark-accent-button'} px-4 py-2`}
