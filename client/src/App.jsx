@@ -17,6 +17,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import FruitList from './components/FruitList';
 import FruitDetail from './components/FruitDetail';
+import CartItem from './components/CartItem';
 
 function App() {
   const [mode, setMode] = useState(localStorage.getItem('theme') || 'light');
@@ -87,6 +88,10 @@ function App() {
             <Route
               path='fruitlist/:id/:title/:description/:price/:instock'
               element={<FruitDetail />}
+            />
+            <Route
+              path='/cartitems'
+              element={<CartItem mode={mode} />}
             />
             <Route
               path='/login'

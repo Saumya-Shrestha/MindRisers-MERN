@@ -81,16 +81,18 @@ const Navbar = ({ title, mode, text, toggleMode }) => {
             </li>
           </ul>
 
-          <button
-            className={`mx-3 bg-transparent border-0 ${mode === 'light' ? 'light-accent-icon' : 'dark-accent-icon'} position-relative`}
-            style={{ cursor: 'pointer' }}
-          >
-            <FaShoppingCart />
-            <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>
-              {cart.length}
-              <span className='visually-hidden'>unread messages</span>
-            </span>
-          </button>
+          <Link to='/cartitems'>
+            <button
+              className={`mx-2 bg-transparent border-0 ${mode === 'light' ? 'light-accent-icon' : 'dark-accent-icon'} position-relative`}
+              style={{ cursor: 'pointer' }}
+            >
+              <FaShoppingCart />
+              <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>
+                {cart.length}
+                <span className='visually-hidden'>cart details</span>
+              </span>
+            </button>
+          </Link>
 
           <button
             className={`mx-3 bg-transparent border-0 ${mode === 'light' ? 'light-accent-icon' : 'dark-accent-icon'}`}

@@ -17,21 +17,21 @@ const ProductState = (props) => {
       title: 'Mango',
       description: 'This is a local product of terai',
       price: 300,
-      instock: 5,
+      instock: 2,
     },
     {
       _id: 3,
       title: 'Banana',
       description: 'This is a local product of gorkha',
       price: 150,
-      instock: 5,
+      instock: 3,
     },
     {
       _id: 4,
-      title: 'Apple',
-      description: 'This is a local product of gorkha',
+      title: 'Grapes',
+      description: 'This is a local product of ilam',
       price: 400,
-      instock: 5,
+      instock: 4,
     },
   ];
 
