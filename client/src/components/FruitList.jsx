@@ -1,6 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import ProductContext from '../context/ProductContext';
 import { BsThreeDots } from 'react-icons/bs';
+import EditProductModal from './EditProductModal';
 // import { useNavigate } from 'react-router-dom';
 
 const FruitList = () => {
@@ -19,6 +20,38 @@ const FruitList = () => {
   //   console.log('You clicked on fruit: ', fruit.title);
   //   navigate(`${fruit._id}/${fruit.title}/${fruit.description}/${fruit.price}/${fruit.instock}`);
   // };
+
+  const [menuVisible, setMenuVisible] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const toggleMenu = (id) => {
+    console.log('Fruit ID: ', id);
+    setMenuVisible((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
+
+  const openEditModal = (product) => {
+    setSelectedProduct(product);
+    console.log('Edit item id: ', product._id);
+    setModalVisible(true);
+  };
+
+  const closeEditModal = () => {
+    setModalVisible(false);
+    setSelectedProduct(null);
+  };
+
+  const saveEdit = (updateData) => {
+    console.log('Save Edit Product: ', updateData);
+    editProduct(selectedProduct._id, updateData);
+  };
+
+  const openDeleteModal = (id) => {
+    console.log('Delete item id: ', id);
+  };
 
   return (
     <>
@@ -39,7 +72,13 @@ const FruitList = () => {
                   <div className='card-body'>
                     <div className='d-flex justify-content-between'>
                       <h5 className='card-title'>{fruit.title}</h5>
-                      <BsThreeDots />
+                      <BsThreeDots onClick={() => toggleMenu(fruit._id)} />
+                      {menuVisible[fruit._id] && (
+                        <div className='menu-options'>
+                          <button onClick={() => openEditModal(fruit)}>Edit</button>
+                          <button onClick={() => openDeleteModal(fruit._id)}>Delete</button>
+                        </div>
+                      )}
                     </div>
                     <p className='card-text'>{fruit.description}</p>
                     <p className='card-text'>Rs. {fruit.price}</p>
@@ -71,6 +110,13 @@ const FruitList = () => {
                     )}
                   </div>
                 </div>
+                {modalVisible && selectedProduct && selectedProduct._id === fruit._id && (
+                  <EditProductModal
+                    product={selectedProduct}
+                    onClose={closeEditModal}
+                    onSave={saveEdit}
+                  />
+                )}
               </div>
             );
           })}
