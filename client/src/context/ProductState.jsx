@@ -57,9 +57,26 @@ const ProductState = (props) => {
     }
   };
 
+  const allProduct = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/produt/getproduct', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'auth-token': 'sdhgaskbgkasdasd2312',
+        },
+      });
+      const data = await response.json();
+      setProduct(data);
+      console.log('Data From Backend: ', data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
   return (
     <>
-      <ProductContext.Provider value={{ state, dispatch, product, setProduct, count, setCount, news, fetchData }}>
+      <ProductContext.Provider value={{ state, dispatch, product, allProduct, setProduct, count, setCount, news, fetchData }}>
         {props.children}
       </ProductContext.Provider>
     </>

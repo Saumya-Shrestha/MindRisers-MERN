@@ -1,7 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import ProductContext from '../context/ProductContext';
 import { BsThreeDots } from 'react-icons/bs';
-import EditProductModal from './EditProductModal';
+import EditProductModal from '../components/EditProductModal';
 // import { useNavigate } from 'react-router-dom';
 
 const FruitList = () => {
@@ -10,6 +10,7 @@ const FruitList = () => {
 
   const {
     product,
+    allProduct,
     state: { cart, products },
     dispatch,
   } = context;
@@ -46,12 +47,17 @@ const FruitList = () => {
 
   const saveEdit = (updateData) => {
     console.log('Save Edit Product: ', updateData);
-    editProduct(selectedProduct._id, updateData);
+    // editProduct(selectedProduct._id, updateData);
   };
 
   const openDeleteModal = (id) => {
     console.log('Delete item id: ', id);
   };
+
+  useEffect(() => {
+    allProduct();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>

@@ -9,15 +9,16 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import Footer from './components/Footer';
-import UserList from './components/UserList';
-import UserDetail from './components/UserDetail';
+import UserList from './pages/UserList';
+import UserDetail from './pages/UserDetail';
 import ProductState from './context/ProductState';
 import { UserProvider } from './context/UserContext';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import FruitList from './components/FruitList';
-import FruitDetail from './components/FruitDetail';
+import FruitList from './pages/FruitList';
+import FruitDetail from './pages/FruitDetail';
 import CartItem from './components/CartItem';
+import AddProduct from './pages/AddProduct';
 
 function App() {
   const [mode, setMode] = useState(localStorage.getItem('theme') || 'light');
@@ -100,6 +101,10 @@ function App() {
             <Route
               path='/signup'
               element={<Signup mode={mode} />}
+            />
+            <Route
+              path='/addproduct'
+              element={<AddProduct mode={mode} />}
             />
           </Routes>
 
