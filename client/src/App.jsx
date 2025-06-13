@@ -19,6 +19,7 @@ import FruitList from './pages/FruitList';
 import FruitDetail from './pages/FruitDetail';
 import CartItem from './components/CartItem';
 import AddProduct from './pages/AddProduct';
+import CompanyForm from './components/CompanyForm';
 
 function App() {
   const [mode, setMode] = useState(localStorage.getItem('theme') || 'light');
@@ -105,6 +106,10 @@ function App() {
             <Route
               path='/addproduct'
               element={<AddProduct mode={mode} />}
+            />
+            <Route
+              path='/companyform'
+              element={<CompanyForm mode={mode} />}
             />
           </Routes>
 
