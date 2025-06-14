@@ -42,7 +42,7 @@ const Gallery = ({ mode }) => {
 
   return (
     <>
-      <div className={`bg-${mode === 'dark' ? 'black' : 'white'} py-5`}>
+      <div className={`bg-${mode === 'dark' ? 'black' : 'white'} bg-gradient py-5`}>
         <div className='container'>
           <div className='row'>
             <div className='col-lg-12'>

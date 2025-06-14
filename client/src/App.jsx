@@ -17,7 +17,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import FruitList from './pages/FruitList';
 import FruitDetail from './pages/FruitDetail';
-import CartItem from './components/CartItem';
+import CartItem from './pages/CartItem';
 import AddProduct from './pages/AddProduct';
 import CompanyForm from './components/CompanyForm';
 
@@ -85,7 +85,7 @@ function App() {
             />
             <Route
               path='/fruitlist'
-              element={<FruitList />}
+              element={<FruitList mode={mode} />}
             />
             <Route
               path='fruitlist/:id/:title/:description/:price/:instock'

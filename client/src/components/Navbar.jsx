@@ -63,20 +63,20 @@ const Navbar = ({ title, mode, text, toggleMode }) => {
                 Contact Us
               </Link>
             </li>
-            <li className='nav-item'>
+            {/* <li className='nav-item'>
               <Link
                 className='nav-link'
                 to='/userlist'
               >
                 Userlist
               </Link>
-            </li>
+            </li> */}
             <li className='nav-item'>
               <Link
                 className='nav-link'
                 to='/fruitlist'
               >
-                Fruitlist
+                Products
               </Link>
             </li>
           </ul>

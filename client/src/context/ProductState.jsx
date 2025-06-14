@@ -7,6 +7,7 @@ const ProductState = (props) => {
   const products = [
     {
       _id: 1,
+      image: '/apple.png',
       title: 'Apple',
       description: 'This is a local product of mustang',
       price: 200,
@@ -14,6 +15,7 @@ const ProductState = (props) => {
     },
     {
       _id: 2,
+      image: '/mango.png',
       title: 'Mango',
       description: 'This is a local product of terai',
       price: 300,
@@ -21,6 +23,7 @@ const ProductState = (props) => {
     },
     {
       _id: 3,
+      image: '/banana.png',
       title: 'Banana',
       description: 'This is a local product of gorkha',
       price: 150,
@@ -28,6 +31,7 @@ const ProductState = (props) => {
     },
     {
       _id: 4,
+      image: '/grapes.png',
       title: 'Grapes',
       description: 'This is a local product of ilam',
       price: 400,
