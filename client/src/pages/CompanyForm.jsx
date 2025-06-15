@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SmallBanner from './SmallBanner';
+import SmallBanner from '../components/SmallBanner';
 
 const CompanyForm = ({ mode }) => {
   const [formData, setFormData] = useState({

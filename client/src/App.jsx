@@ -19,7 +19,7 @@ import FruitList from './pages/FruitList';
 import FruitDetail from './pages/FruitDetail';
 import CartItem from './pages/CartItem';
 import AddProduct from './pages/AddProduct';
-import CompanyForm from './components/CompanyForm';
+import CompanyForm from './pages/CompanyForm';
 
 function App() {
   const [mode, setMode] = useState(localStorage.getItem('theme') || 'light');

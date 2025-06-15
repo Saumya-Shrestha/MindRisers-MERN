@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import SmallBanner from '../components/SmallBanner';
+import axios from 'axios';
 
 const AddProduct = ({ mode }) => {
   const [product, setProduct] = useState({
+    image: '',
     title: '',
     description: '',
     price: '',
@@ -27,6 +29,30 @@ const AddProduct = ({ mode }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('The product has been added.');
+    const formData = new FormData();
+    if (product.image) {
+      formData.append('image', product.image);
+    }
+    formData.append('title', product.title);
+    formData.append('description', product.description);
+    formData.append('price', product.price);
+    formData.append('instock', product.instock);
+    try {
+      const response = axios.post('http://localhost:3001/api/products', formData, {
+        headers: {
+          // 'Content-Type': 'multipart/form-data',
+          'auth-token': '1234567890',
+        },
+      });
+      console.log(response.data);
+      if (response) {
+        alert('Produut Added Successfully!');
+      } else {
+        alert('Error');
+      }
+    } catch (error) {
+      console.log('Error:', error);
+    }
   };
 
   return (

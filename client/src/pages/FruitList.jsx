@@ -14,6 +14,7 @@ const FruitList = ({ mode }) => {
     allProduct,
     state: { cart, products },
     dispatch,
+    editProduct,
   } = context;
   console.log('Cart: ', cart);
   console.log('Product: ', products);
@@ -48,7 +49,7 @@ const FruitList = ({ mode }) => {
 
   const saveEdit = (updateData) => {
     console.log('Save Edit Product: ', updateData);
-    // editProduct(selectedProduct._id, updateData);
+    editProduct(selectedProduct._id, updateData);
   };
 
   const openDeleteModal = (id) => {
