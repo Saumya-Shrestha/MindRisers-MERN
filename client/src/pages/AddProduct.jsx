@@ -26,7 +26,7 @@ const AddProduct = ({ mode }) => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('The product has been added.');
     const formData = new FormData();
@@ -44,9 +44,10 @@ const AddProduct = ({ mode }) => {
           'auth-token': '1234567890',
         },
       });
-      console.log(response.data);
+      const data = await response.json();
+      console.log(data);
       if (response) {
-        alert('Produut Added Successfully!');
+        alert('Product Added Successfully!');
       } else {
         alert('Error');
       }

@@ -63,11 +63,11 @@ const ProductState = (props) => {
 
   const allProduct = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/produt/getproduct', {
+      const response = await fetch('http://localhost:5000/api/product/getproduct', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'auth-token': 'sdhgaskbgkasdasd2312',
+          'auth-token': '1234567890',
         },
       });
       const data = await response.json();
@@ -75,6 +75,7 @@ const ProductState = (props) => {
       console.log('Data From Backend: ', data);
     } catch (error) {
       console.error('Error fetching data:', error);
+      throw new Error('Failed to add product.');
     }
   };
 
@@ -98,9 +99,32 @@ const ProductState = (props) => {
     }
   };
 
+  const deleteProduct = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:5000/api/product/deleteproduct/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          'auth-token': '1234567890',
+        },
+      });
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      console.log('Data deleted: ', data);
+      allProduct();
+    } catch (error) {
+      console.log('Error: ', error);
+      throw new Error('Faield to delete product.');
+    }
+  };
+
   return (
     <>
-      <ProductContext.Provider value={{ state, dispatch, product, allProduct, editProduct, setProduct, count, setCount, news, fetchData }}>
+      <ProductContext.Provider
+        value={{ state, dispatch, product, allProduct, editProduct, deleteProduct, setProduct, count, setCount, news, fetchData }}
+      >
         {props.children}
       </ProductContext.Provider>
     </>

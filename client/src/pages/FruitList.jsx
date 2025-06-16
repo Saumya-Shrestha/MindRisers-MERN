@@ -15,6 +15,7 @@ const FruitList = ({ mode }) => {
     state: { cart, products },
     dispatch,
     editProduct,
+    deleteProduct,
   } = context;
   console.log('Cart: ', cart);
   console.log('Product: ', products);
@@ -52,8 +53,9 @@ const FruitList = ({ mode }) => {
     editProduct(selectedProduct._id, updateData);
   };
 
-  const openDeleteModal = (id) => {
+  const handleDelete = (id) => {
     console.log('Delete item id: ', id);
+    deleteProduct(id);
   };
 
   useEffect(() => {
@@ -98,7 +100,7 @@ const FruitList = ({ mode }) => {
                             </button>
                             <button
                               className={`btn btn-dark ${mode === 'light' ? 'light-accent-button' : 'dark-accent-button'}`}
-                              onClick={() => openDeleteModal(fruit._id)}
+                              onClick={() => handleDelete(fruit._id)}
                             >
                               Delete
                             </button>
