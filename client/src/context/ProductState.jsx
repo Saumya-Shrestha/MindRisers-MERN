@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { cartReducer } from './Reducer';
 
 const ProductState = (props) => {
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
   const products = [
     {
       _id: 1,
@@ -63,7 +65,7 @@ const ProductState = (props) => {
 
   const allProduct = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/product/getproduct', {
+      const response = await fetch(`${BACKEND_URL}/api/product/getproduct`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
