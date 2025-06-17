@@ -2,119 +2,103 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import ProductContext from '../context/ProductContext';
 import { FaShoppingCart } from 'react-icons/fa';
+import logo from '../assets/logo.png';
 
-const Navbar = ({ title, mode, text, toggleMode }) => {
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  // const handleAuthClick = () => {
-  //   const newLoginState = !isLoggedIn;
-  //   setIsLoggedIn(newLoginState);
-  //   notify(newLoginState);
-  // };
-
+const Navbar2 = ({ mode, text, toggleMode }) => {
   const context = useContext(ProductContext);
-
   const {
     state: { cart },
   } = context;
-  console.log('Nav Cart: ', cart);
 
   return (
-    <>
-      <nav className={`navbar navbar-expand-lg navbar-${mode} bg-${mode}`}>
-        <div className='container-fluid'>
-          <Link
-            className={`${mode === 'light' ? 'light-accent-icon' : 'dark-accent-icon'} navbar-brand`}
-            to='/'
-          >
-            {title}
-          </Link>
-          <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
-            <li className='nav-item'>
-              <Link
-                className='nav-link'
-                aria-current='page'
-                to='/'
-              >
-                Home
-              </Link>
-            </li>
-            <li className='nav-item'>
-              <Link
-                className='nav-link'
-                to='/about'
-              >
-                About
-              </Link>
-            </li>
-            <li className='nav-item'>
-              <Link
-                className='nav-link'
-                to='/blog'
-              >
-                Blogs
-              </Link>
-            </li>
-            <li className='nav-item'>
-              <Link
-                className='nav-link'
-                to='/contact'
-              >
-                Contact Us
-              </Link>
-            </li>
-            {/* <li className='nav-item'>
-              <Link
-                className='nav-link'
-                to='/userlist'
-              >
-                Userlist
-              </Link>
-            </li> */}
-            <li className='nav-item'>
-              <Link
-                className='nav-link'
-                to='/fruitlist'
-              >
-                Products
-              </Link>
-            </li>
-          </ul>
+    <header className={`header-section bg-${mode} text-${mode === 'light' ? 'dark' : 'light'}`}>
+      <div className='top-nav'>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-md-6'>
+              <ul className='tn-left'>
+                <li>
+                  <i className={`fa fa-phone ${mode === 'light' ? 'light-accent-icon' : 'dark-accent-icon'}`}></i> (+977) 1 2345678
+                </li>
+                <li>
+                  <i className={`fa fa-envelope ${mode === 'light' ? 'light-accent-icon' : 'dark-accent-icon'}`}></i> reservations@hamrohotel.com
+                </li>
+              </ul>
+            </div>
+            <div className='col-md-6'>
+              <div className='tn-right'>
+                <Link to='/cartitems'>
+                  <button
+                    className={`mx-2 bg-transparent border-0 ${mode === 'light' ? 'light-accent-icon' : 'dark-accent-icon'} position-relative`}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <FaShoppingCart />
+                    <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>
+                      {cart.length}
+                      <span className='visually-hidden'>cart details</span>
+                    </span>
+                  </button>
+                </Link>
 
-          <Link to='/cartitems'>
-            <button
-              className={`mx-2 bg-transparent border-0 ${mode === 'light' ? 'light-accent-icon' : 'dark-accent-icon'} position-relative`}
-              style={{ cursor: 'pointer' }}
-            >
-              <FaShoppingCart />
-              <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>
-                {cart.length}
-                <span className='visually-hidden'>cart details</span>
-              </span>
-            </button>
-          </Link>
+                <button
+                  className={`mx-4 bg-transparent border-0 ${mode === 'light' ? 'light-accent-icon' : 'dark-accent-icon'}`}
+                  onClick={toggleMode}
+                  style={{ cursor: 'pointer' }}
+                >
+                  {text}
+                </button>
 
-          <button
-            className={`mx-3 bg-transparent border-0 ${mode === 'light' ? 'light-accent-icon' : 'dark-accent-icon'}`}
-            onClick={toggleMode}
-            style={{ cursor: 'pointer' }}
-          >
-            {text}
-          </button>
-
-          <Link to='/login'>
-            <button
-              className={`btn btn-dark ${mode === 'light' ? 'light-accent-button' : 'dark-accent-button'} px-4 py-2`}
-              // onClick={handleAuthClick}
-            >
-              {/* {isLoggedIn ? 'Logout' : 'Login'} */}
-              Login
-            </button>
-          </Link>
+                <Link to='/login'>
+                  <button className={`${mode === 'light' ? 'light-accent-button' : 'dark-accent-button'} bk-btn`}>Login</button>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
-      </nav>
-    </>
+      </div>
+      <div className='menu-item'>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-md-2'>
+              <div className='logo'>
+                <Link to='/'>
+                  <img
+                    src={logo}
+                    alt='HAMRO HOTEL'
+                    style={{ height: '32px' }}
+                    className='mt-2'
+                  />
+                </Link>
+              </div>
+            </div>
+            <div className='col-md-10'>
+              <div className='nav-menu text-end'>
+                <nav className={`mainmenu mainmenu-${mode}`}>
+                  <ul>
+                    <li>
+                      <Link to='/'>Home</Link>
+                    </li>
+                    <li>
+                      <Link to='/about'>About</Link>
+                    </li>
+                    <li>
+                      <Link to='/blog'>Blogs</Link>
+                    </li>
+                    <li>
+                      <Link to='/contact'>Contact Us</Link>
+                    </li>
+                    <li>
+                      <Link to='/fruitlist'>Products</Link>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
   );
 };
 
-export default Navbar;
+export default Navbar2;
