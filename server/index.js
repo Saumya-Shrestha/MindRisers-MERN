@@ -7,6 +7,7 @@ const app = express();
 dbConnect();
 
 dotenv.config();
+app.use(express.json());
 const port = process.env.PORT;
 
 app.get('/', (req, res) => {
@@ -25,6 +26,8 @@ app.get('/chats/:id', (req, res) => {
   const singleChat = chats.find((chat) => chat._id === req.params.id);
   res.send(singleChat);
 });
+
+app.use('/api/auth', require('./routes/Auth'));
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
